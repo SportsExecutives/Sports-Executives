@@ -1,0 +1,5 @@
+body { margin:0; font-family: Arial, Helvetica, sans-serif; background:#f5f7fb; color:#1f2937; }
+header { background:#111827; color:#fff; padding:48px 20px; text-align:center; }
+main { max-width:900px; margin:0 auto; padding:32px 20px 100px; }
+section { background:#fff; border-radius:16px; padding:24px; margin-bottom:20px; box-shadow:0 6px 18px rgba(17,24,39,.08); }
+footer { position:fixed; left:0; right:0; bottom:0; background:#111827; color:#e5e7eb; text-align:center; padding:12px; }
