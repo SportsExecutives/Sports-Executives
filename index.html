@@ -3,37 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sports Executives</title>
+  <title>Sports Executives — Game Intelligence</title>
+  <meta name="description" content="Sports Executives delivers clean, actionable game intelligence for sharper decisions." />
   <style>
-    /* Inline CSS so there's no path confusion */
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1f2937; background: #f5f7fb; line-height: 1.6; }
-    header { background: #111827; color: #fff; padding: 48px 20px; text-align: center; }
-    header h1 { margin: 0 0 8px; font-size: 40px; }
-    header p { margin: 0; opacity: .85; }
-    main { max-width: 900px; padding: 32px 20px 100px; margin: 0 auto; }
-    section { background: #fff; border-radius: 16px; padding: 24px; margin-bottom: 20px; box-shadow: 0 6px 18px rgba(17,24,39,.08); }
-    section h2 { margin: 0 0 8px; font-size: 22px; color: #0f172a; }
-    footer { position: fixed; left: 0; right: 0; bottom: 0; background: #111827; color: #e5e7eb; text-align: center; padding: 12px; font-size: 14px; }
+    :root{
+      --bg:#0b1220; --card:#0f172a; --muted:#94a3b8; --text:#e5e7eb; --brand:#22c55e; --brand-2:#38bdf8; --shadow:0 10px 30px rgba(2,6,23,.45);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--text); background: radial-gradient(1200px 600px at 10% -10%, rgba(34,197,94,.15), transparent), radial-gradient(1000px 500px at 90% -20%, rgba(56,189,248,.15), transparent), var(--bg);}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    /* Nav */
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background:rgba(11,18,32,.6); border-bottom:1px solid rgba(148,163,184,.12)}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .logo{display:flex; gap:10px; align-items:center; font-weight:700; letter-spacing:.5px}
+    .logo-mark{width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:var(--shadow)}
+    .nav-cta{display:flex; gap:10px}
+    .btn{display:inline-block; padding:10px 16px; border-radius:12px; font-weight:600; border:1px solid rgba(148,163,184,.2)}
+    .btn.primary{background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#0b1220; border:none}
+    .btn.ghost{background:transparent; color:var(--text)}
+    /* Hero */
+    .hero{padding:64px 0 24px}
+    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center}
+    .headline{font-size:44px; line-height:1.05; margin:0 0 12px}
+    .sub{color:var(--muted); font-size:18px; margin:0 0 24px}
+    .hero-card{background:rgba(15,23,42,.75); border:1px solid rgba(148,163,184,.12); border-radius:20px; padding:20px; box-shadow:var(--shadow)}
+    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px}
+    .kpi{background:rgba(148,163,184,.08); border:1px solid rgba(148,163,184,.12); padding:14px; border-radius:14px; text-align:center}
+    .kpi .n{font-size:22px; font-weight:800}
+    .kpi .l{font-size:12px; color:var(--muted)}
+    /* Features */
+    .section{padding:48px 0}
+    .section h2{margin:0 0 10px; font-size:28px}
+    .muted{color:var(--muted)}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{background:rgba(15,23,42,.75); border:1px solid rgba(148,163,184,.12); border-radius:16px; padding:18px}
+    .card h3{margin:0 0 6px; font-size:18px}
+    /* Plans */
+    .plans{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .plan{background:rgba(15,23,42,.85); border:1px solid rgba(148,163,184,.18); border-radius:18px; padding:20px; position:relative}
+    .badge{position:absolute; top:14px; right:14px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#0b1220; font-weight:700; padding:6px 10px; border-radius:999px; font-size:12px}
+    .price{font-size:30px; font-weight:800; margin:6px 0 10px}
+    .ul{list-style:none; padding:0; margin:0 0 14px}
+    .ul li{display:flex; gap:8px; align-items:flex-start; margin:8px 0; color:#d1d5db}
+    .check{width:18px; height:18px; border-radius:4px; background:linear-gradient(135deg, var(--brand), var(--brand-2))}
+    /* How it works */
+    .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .step{background:rgba(15,23,42,.75); border:1px solid rgba(148,163,184,.12); border-radius:16px; padding:18px}
+    .step .n{display:inline-block; width:26px; height:26px; border-radius:8px; background:rgba(148,163,184,.18); text-align:center; line-height:26px; margin-bottom:8px}
+    /* CTA band */
+    .cta{background:linear-gradient(135deg, rgba(34,197,94,.25), rgba(56,189,248,.25)); border:1px solid rgba(148,163,184,.2); border-radius:20px; padding:22px; display:flex; align-items:center; justify-content:space-between; gap:16px}
+    /* Footer */
+    footer{padding:40px 0; color:var(--muted); border-top:1px solid rgba(148,163,184,.12); margin-top:40px}
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3,.plans,.steps{grid-template-columns:1fr}
+      .cta{flex-direction:column; text-align:center}
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Sports Executives</h1>
-    <p>Game insights & information for smarter betting.</p>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <div>Sports Executives</div>
+      </div>
+      <div class="nav-cta">
+        <a class="btn ghost" href="#features">Features</a>
+        <a class="btn ghost" href="#pricing">Pricing</a>
+        <a class="btn primary" href="mailto:info@sportsexecutives.ai?subject=Demo%20Request">Request a Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="headline">Sharper game decisions, powered by clean intelligence.</h1>
+        <p class="sub">We turn noisy stats into fast, trustworthy signals so you can act with confidence before the market moves.</p>
+        <div class="nav-cta">
+          <a class="btn primary" href="mailto:info@sportsexecutives.ai?subject=Get%20Started">Get Started</a>
+          <a class="btn ghost" href="#how">How it works</a>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="n">50ms</div><div class="l">Signal latency</div></div>
+          <div class="kpi"><div class="n">99.9%</div><div class="l">Uptime</div></div>
+          <div class="kpi"><div class="n">24/7</div><div class="l">Coverage</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <strong>Sample Insight (Today)</strong>
+        <ul class="ul" style="margin-top:10px">
+          <li><span class="check"></span><span>Pitcher fatigue model flags late-inning volatility ↑ when pitch count &gt; 95.</span></li>
+          <li><span class="check"></span><span>Injury feed: two starters upgraded to probable; line movement expected pre-game.</span></li>
+          <li><span class="check"></span><span>Live tempo index suggests faster-than-average possession pace in Q2.</span></li>
+        </ul>
+      </div>
+    </div>
   </header>
-  <main>
-    <section>
-      <h2>About Us</h2>
-      <p>We provide data-driven insights to help clients make informed betting decisions.</p>
+
+  <main class="container">
+    <section id="features" class="section">
+      <h2>Why Sports Executives</h2>
+      <p class="muted">Actionable signals, clean data, and human-readable explanations.</p>
+      <div class="grid-3">
+        <div class="card"><h3>Clean Data Pipeline</h3><p>De-duplicated feeds, injury/lineup normalization, and anomaly detection built-in.</p></div>
+        <div class="card"><h3>Pro Models</h3><p>Tempo, fatigue, matchup, and late-game risk models, tuned and backtested.</p></div>
+        <div class="card"><h3>Explainers</h3><p>Every signal comes with plain-English context so you know the why, not just the what.</p></div>
+        <div class="card"><h3>Live & Pre-game</h3><p>Stay ahead on openers—and react during live swings with low-latency updates.</p></div>
+        <div class="card"><h3>Alerts</h3><p>Configure thresholds to receive only what matters—no firehose spam.</p></div>
+        <div class="card"><h3>Export</h3><p>CSV/JSON exports and dashboard embeds for your existing workflow.</p></div>
+      </div>
     </section>
-    <section>
-      <h2>Contact</h2>
-      <p><a href="mailto:info@sportsexecutives.ai">info@sportsexecutives.ai</a></p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 Sports Executives</p>
-  </footer>
-</body>
-</html>
+
+    <section id="pricing" class="section">
+      <h2>Plans</h2>
+      <p class="muted">Simple tiers for wher
