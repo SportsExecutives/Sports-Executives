@@ -1,18 +1,56 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SE TEST — If you can read this, it’s working</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sports Executives — Game Intelligence</title>
+  <meta name="description" content="Sports Executives delivers clean, actionable game intelligence for sharper decisions." />
   <style>
-    body{margin:0; background:#ff0077; color:#ffffff; font:22px/1.4 Arial, Helvetica, sans-serif; padding:24px}
-    h1{font-size:40px; margin:0 0 8px}
-    .tag{font-size:14px; opacity:.85}
-  </style>
-</head>
-<body>
-  <h1>SPORTS EXECUTIVES — TEST OK ✅</h1>
-  <p>If you can see this pink screen with big text, you’re on the right deployment.</p>
-  <p class="tag">Build ID marker: <strong>SE-PINK-001</strong></p>
-</body>
-</html>
+    /* Boston Red Sox palette */
+    :root{
+      --bg:#0C2340;           /* Midnight Navy */
+      --card:#102846;         /* lighter navy for cards */
+      --muted:#b8c4d6;        /* cool gray/blue */
+      --text:#f3f6fb;         /* near-white */
+      --brand:#BD3039;        /* Red Sox Red */
+      --brand-2:#0C2340;      /* Navy */
+      --shadow:0 10px 30px rgba(2,6,23,.45);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0; padding:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(189,48,57,.20), transparent),
+        radial-gradient(1000px 500px at 90% -20%, rgba(12,35,64,.25), transparent),
+        var(--bg);
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+
+    /* Nav */
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background:rgba(12,35,64,.78); border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .logo{display:flex; gap:10px; align-items:center; font-weight:700; letter-spacing:.5px}
+    .logo-mark{width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:var(--shadow)}
+    .nav-cta{display:flex; gap:10px}
+    .btn{display:inline-block; padding:10px 16px; border-radius:12px; font-weight:600; border:1px solid rgba(255,255,255,.15)}
+    .btn.primary{background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#ffffff; border:none}
+    .btn.ghost{background:transparent; color:var(--text)}
+
+    /* Hero */
+    .hero{padding:64px 0 24px}
+    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center}
+    .headline{font-size:44px; line-height:1.05; margin:0 0 12px}
+    .sub{color:var(--muted); font-size:18px; margin:0 0 24px}
+    .hero-card{background:rgba(16,40,70,.82); border:1px solid rgba(255,255,255,.10); border-radius:20px; padding:20px; box-shadow:var(--shadow)}
+    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px}
+    .kpi{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); padding:14px; border-radius:14px; text-align:center}
+    .kpi .n{font-size:22px; font-weight:800}
+    .kpi .l{font-size:12px; color:var(--muted)}
+
+    /* Sections */
+    .section{padding:48px 0}
+    .section h2{margin:0 0 10px; font-size:28px}
+    .muted{color:var(--muted)}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
