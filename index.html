@@ -54,3 +54,155 @@
     .section h2{margin:0 0 10px; font-size:28px}
     .muted{color:var(--muted)}
     .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{background:rgba(16,40,70,.82); border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:18px}
+    .card h3{margin:0 0 6px; font-size:18px}
+
+    /* Plans */
+    .plans{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .plan{background:rgba(16,40,70,.9); border:1px solid rgba(255,255,255,.16); border-radius:18px; padding:20px; position:relative}
+    .badge{position:absolute; top:14px; right:14px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#fff; font-weight:700; padding:6px 10px; border-radius:999px; font-size:12px}
+    .price{font-size:30px; font-weight:800; margin:6px 0 10px}
+    .ul{list-style:none; padding:0; margin:0 0 14px}
+    .ul li{display:flex; gap:8px; align-items:flex-start; margin:8px 0; color:#e8edf5}
+    .check{width:18px; height:18px; border-radius:4px; background:linear-gradient(135deg, var(--brand), var(--brand-2))}
+
+    /* How it works */
+    .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .step{background:rgba(16,40,70,.82); border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:18px}
+    .step .n{display:inline-block; width:26px; height:26px; border-radius:8px; background:rgba(255,255,255,.12); text-align:center; line-height:26px; margin-bottom:8px}
+
+    /* CTA band */
+    .cta{background:linear-gradient(135deg, rgba(189,48,57,.25), rgba(12,35,64,.25)); border:1px solid rgba(255,255,255,.16); border-radius:20px; padding:22px; display:flex; align-items:center; justify-content:space-between; gap:16px}
+
+    /* Footer */
+    footer{padding:40px 0; color:var(--muted); border-top:1px solid rgba(255,255,255,.10); margin-top:40px}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3,.plans,.steps{grid-template-columns:1fr}
+      .cta{flex-direction:column; text-align:center}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <div>Sports Executives</div>
+      </div>
+      <div class="nav-cta">
+        <a class="btn ghost" href="#features">Features</a>
+        <a class="btn ghost" href="#pricing">Pricing</a>
+        <a class="btn primary" href="mailto:info@sportsexecutives.ai?subject=Demo%20Request">Request a Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="headline">Sharper game decisions, powered by clean intelligence.</h1>
+        <p class="sub">We turn noisy stats into fast, trustworthy signals so you can act with confidence before the market moves.</p>
+        <div class="nav-cta">
+          <a class="btn primary" href="mailto:info@sportsexecutives.ai?subject=Get%20Started">Get Started</a>
+          <a class="btn ghost" href="#how">How it works</a>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="n">50ms</div><div class="l">Signal latency</div></div>
+          <div class="kpi"><div class="n">99.9%</div><div class="l">Uptime</div></div>
+          <div class="kpi"><div class="n">24/7</div><div class="l">Coverage</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <strong>Sample Insight (Today)</strong>
+        <ul class="ul" style="margin-top:10px">
+          <li><span class="check"></span><span>Pitcher fatigue model flags late-inning volatility ↑ when pitch count &gt; 95.</span></li>
+          <li><span class="check"></span><span>Injury feed: two starters upgraded to probable; line movement expected pre-game.</span></li>
+          <li><span class="check"></span><span>Live tempo index suggests faster-than-average possession pace in Q2.</span></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="features" class="section">
+      <h2>Why Sports Executives</h2>
+      <p class="muted">Actionable signals, clean data, and human-readable explanations.</p>
+      <div class="grid-3">
+        <div class="card"><h3>Clean Data Pipeline</h3><p>De-duplicated feeds, injury/lineup normalization, and anomaly detection built-in.</p></div>
+        <div class="card"><h3>Pro Models</h3><p>Tempo, fatigue, matchup, and late-game risk models, tuned and backtested.</p></div>
+        <div class="card"><h3>Explainers</h3><p>Every signal comes with plain-English context so you know the why, not just the what.</p></div>
+        <div class="card"><h3>Live & Pre-game</h3><p>Stay ahead on openers—and react during live swings with low-latency updates.</p></div>
+        <div class="card"><h3>Alerts</h3><p>Configure thresholds to receive only what matters—no firehose spam.</p></div>
+        <div class="card"><h3>Export</h3><p>CSV/JSON exports and dashboard embeds for your existing workflow.</p></div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <h2>Plans</h2>
+      <p class="muted">Simple tiers for where you’re at right now.</p>
+      <div class="plans">
+        <div class="plan">
+          <div class="price">Starter</div>
+          <ul class="ul">
+            <li><span class="check"></span><span>Core pre-game signals</span></li>
+            <li><span class="check"></span><span>Email alerts</span></li>
+            <li><span class="check"></span><span>Basic support</span></li>
+          </ul>
+          <a class="btn ghost" href="mailto:info@sportsexecutives.ai?subject=Starter%20Plan">Talk to sales</a>
+        </div>
+        <div class="plan">
+          <div class="badge">Most Popular</div>
+          <div class="price">Pro</div>
+          <ul class="ul">
+            <li><span class="check"></span><span>Live game signals</span></li>
+            <li><span class="check"></span><span>Custom alert thresholds</span></li>
+            <li><span class="check"></span><span>CSV/JSON export</span></li>
+          </ul>
+          <a class="btn primary" href="mailto:info@sportsexecutives.ai?subject=Pro%20Plan">Request access</a>
+        </div>
+        <div class="plan">
+          <div class="price">Enterprise</div>
+          <ul class="ul">
+            <li><span class="check"></span><span>Dedicated feed & SLA</span></li>
+            <li><span class="check"></span><span>Custom models & onboarding</span></li>
+            <li><span class="check"></span><span>Priority support</span></li>
+          </ul>
+          <a class="btn ghost" href="mailto:info@sportsexecutives.ai?subject=Enterprise%20Plan">Contact us</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <h2>How it works</h2>
+      <p class="muted">From data to decision in three steps.</p>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>Connect</h3><p>We ingest official feeds and trusted sources, then clean and unify the data.</p></div>
+        <div class="step"><span class="n">2</span><h3>Model</h3><p>Signals run through tempo, fatigue, and matchup models tuned by experts.</p></div>
+        <div class="step"><span class="n">3</span><h3>Act</h3><p>Receive concise alerts with context so you can decide quickly and confidently.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta">
+        <div>
+          <strong style="display:block; font-size:18px;">Ready to see your first signals?</strong>
+          <span class="muted">We’ll send a short demo and sample feed.</span>
+        </div>
+        <div class="nav-cta">
+          <a class="btn primary" href="mailto:info@sportsexecutives.ai?subject=Send%20Demo">Email the team</a>
+          <a class="btn ghost" href="#pricing">See plans</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2025 Sports Executives • info@sportsexecutives.ai
+    </div>
+  </footer>
+</body>
+</html>
